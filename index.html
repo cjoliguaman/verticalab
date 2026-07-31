@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portafolio de Vertical Lab: estrategia, contenido y crecimiento para marcas que quieren convertir atención en oportunidades.">
+  <meta name="theme-color" content="#472549">
+  <title>Vertical Lab — Portafolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --violeta:#472549;--lavanda:#b49cdb;--naranja:#ff8120;--oliva:#b9a01f;
+      --tinta:#121012;--papel:#f8f5f1;--blanco:#fff;--linea:#e6ded8;
+      --titulo:"Vogun","League Spartan",sans-serif;--texto:"Poppins",sans-serif;
+      --sombra:0 24px 70px rgba(38,17,40,.14);--radio:24px;--max:1280px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:82px}
+    body{margin:0;background:var(--papel);color:var(--tinta);font:400 15px/1.7 var(--texto);overflow-x:hidden}
+    body.modal-open{overflow:hidden}
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;color:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}
+    :focus-visible{outline:3px solid var(--naranja);outline-offset:4px}
+    .skip{position:fixed;left:20px;top:-60px;z-index:200;padding:10px 15px;background:#fff;border-radius:10px;transition:.2s}
+    .skip:focus{top:12px}
+    .progress{position:fixed;z-index:120;left:0;top:0;width:0;height:3px;background:var(--naranja)}
+    .nav{position:fixed;z-index:110;inset:0 0 auto;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 max(5vw,24px);background:rgba(248,245,241,.84);border-bottom:1px solid rgba(71,37,73,.1);backdrop-filter:blur(18px)}
+    .nav-brand{display:flex;align-items:center;gap:10px;font:800 22px/.72 var(--titulo);letter-spacing:-.05em;color:var(--violeta)}
+    .brand-dot{width:11px;height:11px;border-radius:50%;background:var(--naranja);box-shadow:13px -7px 0 var(--lavanda)}
+    .nav-links{display:flex;gap:26px;align-items:center;font-size:12px;font-weight:600}
+    .nav-links a{position:relative}
+    .nav-links a:after{content:"";position:absolute;left:0;right:100%;bottom:-7px;height:2px;background:var(--naranja);transition:.25s}
+    .nav-links a:hover:after{right:0}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:12px 19px;border:1px solid transparent;border-radius:999px;background:var(--violeta);color:#fff;font-size:12px;font-weight:600;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s}
+    .btn:hover{transform:translateY(-2px);background:var(--naranja);box-shadow:0 12px 30px rgba(255,129,32,.25)}
+    .btn-outline{background:transparent;border-color:currentColor}
+    .btn-outline:hover{background:#fff;color:var(--violeta)}
+    .menu-toggle{display:none;width:46px;height:46px;border:1px solid var(--linea);border-radius:50%;background:#fff;cursor:pointer}
+    .section{position:relative;padding:clamp(88px,10vw,150px) max(6vw,28px);overflow:hidden}
+    .inner{width:min(var(--max),100%);margin:auto}
+    .eyebrow{margin:0 0 16px;color:var(--violeta);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+    h1,h2,h3{margin:0;font-family:var(--titulo);letter-spacing:-.055em;line-height:.94}
+    h1{font-size:clamp(68px,11vw,156px)}
+    h2{font-size:clamp(48px,7vw,92px);max-width:970px}
+    h3{font-size:clamp(28px,3vw,42px)}
+    p{margin:0 0 18px}
+    .lead{max-width:690px;font-size:clamp(17px,2vw,22px);line-height:1.5}
+    .accent{color:var(--lavanda)}
+    .hero{min-height:100svh;display:flex;align-items:center;padding-top:120px;color:#fff;background:var(--violeta);isolation:isolate}
+    .hero:before{content:"";position:absolute;z-index:-2;width:min(72vw,970px);aspect-ratio:1;right:-22vw;top:5%;border-radius:50%;background:var(--naranja)}
+    .hero:after{content:"";position:absolute;z-index:-1;inset:0;opacity:.5;background-image:radial-gradient(circle at center,rgba(255,255,255,.27) 0 1px,transparent 1.6px);background-size:44px 44px;mask-image:linear-gradient(90deg,transparent 20%,#000)}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(310px,.65fr);gap:clamp(35px,7vw,110px);align-items:center}
+    .hero .eyebrow{color:#e3d7f1}
+    .hero-copy{position:relative;z-index:2}
+    .hero-copy h1 span{display:block;color:var(--lavanda)}
+    .hero-copy .lead{margin-top:24px}
+    .hero-copy .subcopy{max-width:580px;color:rgba(255,255,255,.76)}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+    .hero-visual{position:relative;min-height:min(70vh,660px);display:grid;place-items:center}
+    .hero-orbit{position:absolute;width:min(39vw,530px);aspect-ratio:1;border:1px solid rgba(255,255,255,.4);border-radius:50%;animation:spin 22s linear infinite}
+    .hero-orbit:before,.hero-orbit:after{content:"";position:absolute;border-radius:50%}
+    .hero-orbit:before{width:18px;height:18px;left:10%;top:16%;background:var(--lavanda)}
+    .hero-orbit:after{width:12px;height:12px;right:10%;bottom:21%;background:var(--oliva)}
+    .hero-logo-wrap{position:relative;width:min(33vw,430px);aspect-ratio:1;display:grid;place-items:center;border:1px solid rgba(255,255,255,.24);border-radius:34px;background:rgba(26,12,28,.22);box-shadow:36px 36px 0 rgba(37,13,39,.2);backdrop-filter:blur(8px);transform:rotate(2deg)}
+    .hero-logo-wrap img{width:88%;height:88%;object-fit:contain;filter:drop-shadow(0 25px 35px rgba(0,0,0,.3));animation:float 5s ease-in-out infinite}
+    .hero-stamp{position:absolute;right:-20px;bottom:42px;width:108px;height:108px;display:grid;place-items:center;text-align:center;border-radius:50%;background:var(--oliva);color:var(--violeta);font:700 12px/1.1 var(--titulo);letter-spacing:.08em;text-transform:uppercase;transform:rotate(9deg)}
+    .hero-stamp:before{content:"";position:absolute;inset:8px;border:1px dashed currentColor;border-radius:50%}
+    .hero-footer{position:absolute;left:max(6vw,28px);right:max(6vw,28px);bottom:25px;display:flex;justify-content:space-between;padding-top:14px;border-top:1px solid rgba(255,255,255,.32);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes float{50%{transform:translateY(-12px)}}
+    .about{background:#fff}
+    .about-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(330px,.72fr);gap:clamp(50px,8vw,120px);align-items:start}
+    .about-copy .lead{margin-top:26px}
+    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
+    .pillar{min-height:205px;padding:24px;border:1px solid var(--linea);border-radius:18px;background:#fff;transition:.25s}
+    .pillar:hover{transform:translateY(-5px);box-shadow:var(--sombra)}
+    .pillar:nth-child(2){background:#f0eafa}.pillar:nth-child(3){background:#fff0e4}
+    .pillar-number{display:block;margin-bottom:44px;color:var(--lavanda);font:700 34px/1 var(--titulo)}
+    .pillar h3{font-size:29px;margin-bottom:10px}.pillar p{font-size:12px;line-height:1.55}
+    .quote{margin-top:48px;color:var(--violeta);font:600 clamp(30px,4vw,54px)/1 var(--titulo);letter-spacing:-.04em}
+    .strategy-card{position:sticky;top:110px}
+    .strategy-image{position:relative;overflow:hidden;border-radius:var(--radio);box-shadow:24px 24px 0 #eee7f5;background:#efe9e4}
+    .strategy-image img{width:100%;aspect-ratio:2/3;object-fit:cover}
+    .strategy-tag{position:absolute;left:20px;bottom:20px;right:20px;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.9);color:var(--violeta);font-size:12px;font-weight:600;backdrop-filter:blur(12px)}
+    .brands{background:#f2ecf7}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:45px}
+    .section-head .lead{max-width:510px}
+    .filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:42px}
+    .filter{padding:9px 14px;border:1px solid rgba(71,37,73,.18);border-radius:999px;background:transparent;color:var(--violeta);font-size:11px;font-weight:600;cursor:pointer;transition:.2s}
+    .filter:hover,.filter.active{background:var(--violeta);color:#fff}
+    .brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+    .brand-card{min-height:185px;display:flex;flex-direction:column;justify-content:space-between;padding:23px;border:1px solid rgba(71,37,73,.12);border-radius:18px;background:#fff;cursor:pointer;text-align:left;transition:.25s}
+    .brand-card:hover{transform:translateY(-6px);background:var(--violeta);color:#fff;box-shadow:0 20px 45px rgba(71,37,73,.2)}
+    .brand-meta{display:flex;justify-content:space-between;gap:10px;color:var(--violeta);font-size:9px;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+    .brand-card:hover .brand-meta{color:var(--lavanda)}
+    .brand-card h3{font-size:30px;margin:36px 0 9px}
+    .brand-card p{margin:0;font-size:11px;line-height:1.45;color:#615a61}
+    .brand-card:hover p{color:rgba(255,255,255,.72)}
+    .external{width:34px;height:34px;display:grid;place-items:center;border:1px solid currentColor;border-radius:50%;font-size:16px}
+    .cases{background:#fff}
+    .case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:50px}
+    .case-card{position:relative;min-height:510px;overflow:hidden;padding:32px;border:0;border-radius:26px;color:#fff;background:var(--violeta);cursor:pointer;text-align:left;transition:.3s;isolation:isolate}
+    .case-card:hover{transform:translateY(-8px);box-shadow:var(--sombra)}
+    .case-card:before{content:"";position:absolute;z-index:-2;width:330px;height:330px;right:-100px;bottom:-100px;border-radius:50%;background:var(--lavanda);transition:.35s}
+    .case-card:hover:before{transform:scale(1.18)}
+    .case-card:nth-child(2){background:#20171f}.case-card:nth-child(2):before{background:var(--naranja)}
+    .case-card:nth-child(3){background:var(--naranja)}.case-card:nth-child(3):before{background:var(--violeta)}
+    .case-card:nth-child(4){background:var(--oliva);color:var(--violeta)}.case-card:nth-child(4):before{background:#fff}
+    .case-top{display:flex;justify-content:space-between;align-items:start;gap:20px}
+    .case-badge{display:inline-flex;padding:7px 10px;border:1px solid currentColor;border-radius:999px;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+    .case-logo{width:110px;height:110px;display:grid;place-items:center;padding:10px;border-radius:20px;background:rgba(255,255,255,.94);box-shadow:0 18px 35px rgba(0,0,0,.16)}
+    .case-logo img{width:100%;height:100%;object-fit:contain}
+    .case-card h3{max-width:470px;margin:70px 0 15px;font-size:clamp(42px,5vw,64px)}
+    .case-card p{max-width:480px;font-size:13px;color:rgba(255,255,255,.78)}
+    .case-card:nth-child(4) p{color:rgba(71,37,73,.72)}
+    .case-bottom{position:absolute;left:32px;right:32px;bottom:29px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .case-bottom span:first-child{font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+    .arrow{width:48px;height:48px;display:grid;place-items:center;border:1px solid currentColor;border-radius:50%;font-size:22px;transition:.2s}
+    .case-card:hover .arrow{transform:rotate(45deg);background:#fff;color:var(--violeta)}
+    .process{color:#fff;background:var(--violeta)}
+    .process .eyebrow{color:var(--lavanda)}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:55px;border:1px solid rgba(255,255,255,.2);border-radius:22px;overflow:hidden}
+    .step{min-height:300px;padding:28px;border-right:1px solid rgba(255,255,255,.2);transition:.25s}
+    .step:last-child{border:0}.step:hover{background:rgba(255,255,255,.06)}
+    .step-num{display:block;color:var(--lavanda);font:700 58px/1 var(--titulo)}
+    .step h3{margin:80px 0 12px;font-size:33px}.step p{font-size:12px;color:rgba(255,255,255,.67)}
+    .industries{background:var(--papel)}
+    .industry-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:48px}
+    .industry{min-height:220px;padding:22px;border:1px solid var(--linea);border-radius:18px;background:#fff}
+    .industry:nth-child(2){background:#fff0e4}.industry:nth-child(3){background:#f0eafa}.industry:nth-child(4){background:#f4f1e0}
+    .industry-code{display:block;margin-bottom:58px;color:var(--lavanda);font:700 23px/1 var(--titulo)}
+    .industry h3{font-size:27px;margin-bottom:14px}.industry p{font-size:11px;line-height:1.55}
+    .contact{min-height:85svh;display:flex;align-items:center;color:#fff;background:var(--violeta);isolation:isolate}
+    .contact:before{content:"";position:absolute;z-index:-1;width:min(67vw,900px);aspect-ratio:1;right:-28vw;top:6%;border-radius:50%;background:var(--naranja)}
+    .contact .eyebrow{color:var(--lavanda)}
+    .contact h2{max-width:1050px;font-size:clamp(58px,8vw,112px)}
+    .contact .lead{margin-top:28px;color:rgba(255,255,255,.78)}
+    .contact-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:34px}
+    .contact .btn{background:#fff;color:var(--violeta);font-size:13px}.contact .btn:hover{background:var(--oliva)}
+    .phone{font-size:12px;color:rgba(255,255,255,.75)}
+    .footer{display:flex;justify-content:space-between;gap:20px;padding:23px max(6vw,28px);background:#2c1630;color:#fff;font-size:10px;letter-spacing:.04em}
+    .footer b{text-transform:uppercase;letter-spacing:.12em}
+    .whatsapp{position:fixed;z-index:100;right:24px;bottom:24px;width:58px;height:58px;display:grid;place-items:center;border-radius:50%;background:var(--naranja);color:#fff;box-shadow:0 15px 35px rgba(0,0,0,.25);font-weight:700;transition:.2s}
+    .whatsapp:hover{transform:translateY(-4px) scale(1.03);background:var(--oliva);color:var(--violeta)}
+    .modal{position:fixed;z-index:160;inset:0;display:none;place-items:center;padding:22px;background:rgba(25,9,27,.76);backdrop-filter:blur(10px)}
+    .modal.open{display:grid}
+    .modal-box{position:relative;width:min(980px,100%);max-height:92svh;overflow:auto;border-radius:28px;background:#fff;box-shadow:0 30px 100px rgba(0,0,0,.28)}
+    .modal-hero{display:grid;grid-template-columns:1fr 210px;gap:28px;align-items:center;padding:clamp(34px,5vw,64px);color:#fff;background:var(--violeta)}
+    .modal-logo{height:180px;display:grid;place-items:center;padding:20px;border-radius:23px;background:#fff}.modal-logo img{max-height:100%;object-fit:contain}
+    .modal-body{padding:clamp(32px,5vw,64px)}
+    .close{position:absolute;z-index:3;right:19px;top:15px;width:44px;height:44px;border:1px solid rgba(255,255,255,.45);border-radius:50%;background:rgba(0,0,0,.15);color:#fff;font-size:28px;cursor:pointer}
+    .modal-kicker{margin-bottom:12px;color:var(--lavanda);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+    .modal-hero h2{font-size:clamp(45px,6vw,76px)}
+    .modal-meta{margin:16px 0 0;color:rgba(255,255,255,.73);font-size:12px}
+    .modal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:38px 48px}
+    .modal-block h3{margin-bottom:12px;color:var(--violeta);font-size:31px}.modal-block p,.modal-block li{font-size:13px}
+    .modal-block ul{margin:0;padding-left:18px}
+    .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:35px 0}
+    .metric{padding:20px;border-radius:16px;background:#f0eafa}.metric strong{display:block;color:var(--violeta);font:700 36px/1 var(--titulo)}.metric span{font-size:10px}
+    .video-title{margin:46px 0 18px;color:var(--violeta);font-size:31px}
+    .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .video-link{position:relative;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;padding:19px;overflow:hidden;border-radius:18px;color:#fff;background:var(--violeta);transition:.25s;isolation:isolate}
+    .video-link:before{content:"";position:absolute;z-index:-1;width:150px;height:150px;right:-35px;bottom:-45px;border-radius:50%;background:var(--naranja)}
+    .video-link:nth-child(2){background:#20171f}.video-link:nth-child(2):before{background:var(--lavanda)}
+    .video-link:nth-child(3){background:var(--naranja)}.video-link:nth-child(3):before{background:var(--violeta)}
+    .video-link:hover{transform:translateY(-5px)}
+    .play{width:45px;height:45px;display:grid;place-items:center;border:1px solid currentColor;border-radius:50%}.video-link strong{font:700 26px/1 var(--titulo)}.video-link small{font-size:10px;text-transform:uppercase;letter-spacing:.1em}
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+    .empty{grid-column:1/-1;padding:30px;border:1px dashed rgba(71,37,73,.25);border-radius:18px;text-align:center;color:var(--violeta)}
+    @media(max-width:1050px){.brand-grid{grid-template-columns:repeat(3,1fr)}.industry-grid{grid-template-columns:repeat(3,1fr)}.hero-grid{grid-template-columns:1fr .62fr}.hero-logo-wrap{width:min(38vw,400px)}}
+    @media(max-width:820px){
+      .nav-links{position:fixed;inset:76px 18px auto;display:none;flex-direction:column;align-items:stretch;padding:20px;border-radius:18px;background:#fff;box-shadow:var(--sombra)}.nav-links.open{display:flex}.menu-toggle{display:block}.nav>.btn{display:none}
+      .hero{padding-bottom:110px}.hero-grid,.about-grid{grid-template-columns:1fr}.hero-visual{min-height:440px;order:-1}.hero-logo-wrap{width:min(72vw,410px)}.hero-orbit{width:min(78vw,480px)}.hero-copy{text-align:center}.hero-copy .lead,.hero-copy .subcopy{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}.hero-footer{bottom:19px}
+      .strategy-card{position:relative;top:auto}.strategy-image{max-width:520px;margin:auto}.section-head{display:block}.section-head .lead{margin-top:22px}.brand-grid{grid-template-columns:repeat(2,1fr)}.case-grid{grid-template-columns:1fr}.process-grid{grid-template-columns:repeat(2,1fr)}.step:nth-child(2){border-right:0}.step:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.2)}.modal-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:560px){
+      body{font-size:14px}.nav{height:68px;padding:0 18px}.nav-links{inset:68px 12px auto}.section{padding:82px 20px}h1{font-size:clamp(63px,23vw,98px)}h2{font-size:clamp(43px,16vw,68px)}
+      .hero{padding-top:95px}.hero-visual{min-height:350px}.hero-logo-wrap{width:72vw;border-radius:24px;box-shadow:20px 20px 0 rgba(37,13,39,.2)}.hero-stamp{width:90px;height:90px;right:-8px;bottom:15px;font-size:10px}.hero-footer{left:20px;right:20px}.hero-footer span:first-child{display:none}
+      .pillars,.brand-grid,.process-grid,.industry-grid,.metrics,.video-grid{grid-template-columns:1fr}.pillar{min-height:auto}.pillar-number{margin-bottom:28px}.case-card{min-height:480px;padding:24px}.case-card h3{margin-top:65px}.case-logo{width:92px;height:92px}.case-bottom{left:24px;right:24px}.step{border-right:0;border-bottom:1px solid rgba(255,255,255,.2)!important;min-height:230px}.step:last-child{border-bottom:0!important}.step h3{margin-top:45px}
+      .modal{padding:0}.modal-box{max-height:100svh;height:100svh;border-radius:0}.modal-hero{grid-template-columns:1fr;padding:70px 24px 30px}.modal-logo{height:130px}.modal-body{padding:30px 22px}.video-link{min-height:170px}.footer{display:block}.footer span{display:block;margin-top:6px}.whatsapp{right:16px;bottom:16px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <div class="progress" id="progress"></div>
+  <header class="nav">
+    <a class="nav-brand" href="#inicio" aria-label="Vertical Lab, inicio"><span class="brand-dot"></span><span>vertical<br>lab.</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+      <a href="#proyectos">Casos de estudio</a><a href="#marcas">Marcas</a><a href="#nosotros">Nosotros</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a class="btn" href="https://wa.me/593995134943?text=Hola%2C%20vi%20el%20portafolio%20de%20Vertical%20Lab%20y%20quiero%20conversar%20sobre%20mi%20proyecto." target="_blank" rel="noopener">Hablemos ↗</a>
+  </header>
+
+  <main id="contenido">
+    <section class="section hero" id="inicio">
+      <div class="inner hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Portafolio 2026 · Vertical Lab</p>
+          <h1>ideas que<br><span>crecen.</span></h1>
+          <p class="lead">Construimos sistemas de contenido que ayudan a las marcas a conectar con clientes y generar oportunidades comerciales.</p>
+          <p class="subcopy">Estrategia, producción y optimización para transformar presencia digital en crecimiento.</p>
+          <div class="hero-actions"><a class="btn" href="#proyectos">Explorar proyectos ↓</a><a class="btn btn-outline" href="#contacto">Trabajemos juntos</a></div>
+        </div>
+        <div class="hero-visual reveal" aria-label="Identidad visual de Vertical Lab">
+          <div class="hero-orbit"></div>
+          <div class="hero-logo-wrap"><img src="assets/logo-vertical.webp" alt="Logo vertical de Vertical Lab"><span class="hero-stamp">Estrategia<br>Contenido<br>Crecimiento</span></div>
+        </div>
+      </div>
+      <div class="hero-footer"><span>Ideas crecen en equipo.</span><span>Quito · Ecuador / Disponible para nuevos proyectos</span></div>
+    </section>
+
+    <section class="section about" id="nosotros">
+      <div class="inner about-grid">
+        <div class="about-copy reveal">
+          <p class="eyebrow">Sobre Vertical Lab</p>
+          <h2>No hacemos contenido <span class="accent">por hacer contenido.</span></h2>
+          <p class="lead">El contenido es una herramienta dentro de una estrategia. Antes de grabar, entendemos qué necesita comunicar la marca y qué acción queremos provocar en su audiencia.</p>
+          <div class="pillars">
+            <article class="pillar"><span class="pillar-number">01</span><h3>Estrategia</h3><p>Entendemos el negocio, la audiencia y los objetivos para definir una dirección clara.</p></article>
+            <article class="pillar"><span class="pillar-number">02</span><h3>Contenido</h3><p>Diseñamos piezas capaces de captar atención, generar confianza y conectar con clientes.</p></article>
+            <article class="pillar"><span class="pillar-number">03</span><h3>Crecimiento</h3><p>Medimos, aprendemos y optimizamos para construir canales digitales cada vez más sólidos.</p></article>
+          </div>
+          <p class="quote">Del contenido a las oportunidades comerciales.</p>
+        </div>
+        <aside class="strategy-card reveal">
+          <figure class="strategy-image"><img src="assets/estrategia.webp" alt="Ilustración de estrategia digital y creación de contenido"><figcaption class="strategy-tag">Detrás de cada pieza hay investigación, ideas, guiones, producción y análisis.</figcaption></figure>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section cases" id="proyectos">
+      <div class="inner">
+        <p class="eyebrow reveal">Casos de estudio</p>
+        <h2 class="reveal">Contenido que se convierte en <span class="accent">resultados.</span></h2>
+        <p class="lead reveal" style="margin-top:25px">Explora cómo transformamos retos de negocio en sistemas de contenido, posicionamiento y oportunidades.</p>
+        <div class="case-grid" id="caseGrid"></div>
+      </div>
+    </section>
+
+    <section class="section brands" id="marcas">
+      <div class="inner">
+        <div class="section-head reveal"><div><p class="eyebrow">Experiencia que conecta</p><h2>Marcas que han confiado en <span class="accent">Vertical Lab.</span></h2></div><p class="lead">Selecciona una categoría y descubre los perfiles de las marcas con las que hemos trabajado.</p></div>
+        <div class="filter-row reveal" id="filters" aria-label="Filtros de marcas"></div>
+        <div class="brand-grid" id="brandGrid"></div>
+      </div>
+    </section>
+
+    <section class="section process" id="proceso">
+      <div class="inner">
+        <p class="eyebrow reveal">Nuestra forma de trabajar</p>
+        <h2 class="reveal">De la idea al <span class="accent">contenido.</span></h2>
+        <div class="process-grid reveal">
+          <article class="step"><span class="step-num">01</span><h3>Entendemos</h3><p>Analizamos tu marca, audiencia, mercado y objetivos.</p></article>
+          <article class="step"><span class="step-num">02</span><h3>Diseñamos</h3><p>Creamos conceptos, pilares, formatos y una estrategia de contenido.</p></article>
+          <article class="step"><span class="step-num">03</span><h3>Producimos</h3><p>Desarrollamos piezas adaptadas a cada plataforma y etapa del cliente.</p></article>
+          <article class="step"><span class="step-num">04</span><h3>Optimizamos</h3><p>Leemos resultados, identificamos oportunidades y mejoramos el sistema.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section industries">
+      <div class="inner">
+        <p class="eyebrow reveal">Experiencia por industrias</p>
+        <h2 class="reveal">Adaptamos el contenido a <span class="accent">cada negocio.</span></h2>
+        <div class="industry-grid reveal">
+          <article class="industry"><span class="industry-code">RE</span><h3>Inmobiliario</h3><p>ANCÓN<br>Paola Barberis<br>Neo Constru</p></article>
+          <article class="industry"><span class="industry-code">FO</span><h3>Gastronomía</h3><p>Daki<br>Saphi<br>Dan Collantes</p></article>
+          <article class="industry"><span class="industry-code">MU</span><h3>Música</h3><p>Papá Changó<br>Lily Blue<br>Jorge C y La 45</p></article>
+          <article class="industry"><span class="industry-code">EV</span><h3>Eventos</h3><p>Relie Film<br>Andrea Villalba<br>Buen Plan</p></article>
+          <article class="industry"><span class="industry-code">WE</span><h3>Bienestar</h3><p>HFit<br>Templo Jempe</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contacto">
+      <div class="inner reveal">
+        <p class="eyebrow">El siguiente paso</p>
+        <h2>Tu marca tiene una historia. Nosotros la convertimos en <span class="accent">oportunidades.</span></h2>
+        <p class="lead">Contenido que conecta, posiciona y ayuda a crecer.</p>
+        <div class="contact-actions"><a class="btn" href="https://wa.me/593995134943?text=Hola%2C%20vi%20el%20portafolio%20de%20Vertical%20Lab%20y%20quiero%20conversar%20sobre%20mi%20proyecto." target="_blank" rel="noopener">Escríbenos por WhatsApp ↗</a><span class="phone">+593 995 134 943</span></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><b>Vertical Lab</b><span>Ideas crecen en equipo.</span><span>Estrategia · Contenido · Crecimiento</span></footer>
+  <a class="whatsapp" href="https://wa.me/593995134943?text=Hola%2C%20vi%20el%20portafolio%20de%20Vertical%20Lab%20y%20quiero%20conversar%20sobre%20mi%20proyecto." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">WA</a>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <article class="modal-box"><button class="close" id="closeModal" aria-label="Cerrar caso de estudio">×</button><div id="modalContent"></div></article>
+  </div>
+
+  <script>
+    const whatsapp='https://wa.me/593995134943?text=Hola%2C%20vi%20el%20portafolio%20de%20Vertical%20Lab%20y%20quiero%20conversar%20sobre%20mi%20proyecto.';
+    const cases={
+      ancon:{name:'ANCÓN Grupo Inmobiliario',short:'ANCÓN',industry:'Inmobiliario',service:'Sistema de contenido comercial · Gestión completa de TikTok',title:'De cero a un canal de adquisición',logo:'assets/casos/ancon.webp',challenge:'ANCÓN buscaba llegar a potenciales clientes y fortalecer su presencia digital. La marca no contaba con presencia en TikTok.',strategy:'Creamos desde cero un sistema de contenido: estrategia, investigación, ideas, guiones, grabación, edición, publicación y optimización.',content:['Storytelling de proyectos y experiencias.','Contenido educativo sobre inversión inmobiliaria.','Testimonios para construir confianza.','UGC y tendencias adaptadas a TikTok.'],metrics:[['+35.000','seguidores'],['+423.000','me gusta'],['+1 millón','reproducciones']],impact:'TikTok se convirtió en uno de sus principales canales de adquisición. En el primer año se vendieron 13 terrenos y, para el cuarto año, 80 terrenos.',videos:['https://vt.tiktok.com/ZS4j8xcgA/','https://vt.tiktok.com/ZS4j8txRJ/','https://vt.tiktok.com/ZS4j8vRCQ/']},
+      relie:{name:'Relie Film',short:'Relie Film',industry:'Luxury Wedding Films',service:'Estrategia y sistema de contenido comercial',title:'Una audiencia de lujo a escala',logo:'assets/casos/relie.webp',challenge:'Relie Film tenía un amplio archivo audiovisual de bodas de lujo, pero necesitaba transformarlo en contenido efectivo para TikTok.',strategy:'Curamos el material existente, identificamos momentos emocionales y editamos piezas verticales nativas para la plataforma.',content:['Momentos especiales y narrativas emocionales.','Contenido aspiracional de experiencias y detalles.','Contenido educativo sobre bodas y producción.','Piezas de marca para mostrar su estilo profesional.'],metrics:[['+260.000','seguidores'],['+9,9 M','me gusta'],['+1 millón','reproducciones']],impact:'Identificamos formatos de alta viralidad que la marca pudo replicar para continuar creciendo y consolidar su posicionamiento.',videos:['https://vt.tiktok.com/ZS4jLhBr7/','https://vt.tiktok.com/ZS4j8odko/','https://vt.tiktok.com/ZS4jL8qjY/']},
+      daki:{name:'Daki',short:'Daki',industry:'Gastronomía',service:'Sistema de contenido comercial · Gestión completa de TikTok',title:'Una comunidad desde cero',logo:'assets/casos/daki.webp',challenge:'Daki inició como una nueva propuesta de comida coreana y necesitaba reconocimiento, comunidad e interés para atraer personas al restaurante.',strategy:'Desarrollamos conceptos, guiones, grabación, edición y adaptación multiplataforma para TikTok e Instagram.',content:['Entretenimiento y humor basado en tendencias.','Contenido foodie para mostrar platos y experiencia.','Contenido educativo sobre cultura coreana.','Activaciones en calle para generar interacción.'],metrics:[['+30.000','seguidores'],['+756.000','me gusta'],['+800.000','reproducciones']],impact:'Daki pasó de ser una marca nueva a una comunidad digital reconocible que atrae clientes al restaurante.',videos:['https://vt.tiktok.com/ZS4jLNmAU/','https://vt.tiktok.com/ZS4jLSMpR/','https://vt.tiktok.com/ZS4jLReFC/']},
+      papa:{name:'Papá Changó',short:'Papá Changó',industry:'Música · Entretenimiento',service:'Producción de contenido multiplataforma',title:'Una canción convertida en experiencia digital',logo:'assets/casos/papa-chango.webp',challenge:'La banda buscaba dar visibilidad a “La Cumbia Francesa” y crear conversación alrededor de sus lanzamientos.',strategy:'Desarrollamos conceptos creativos, planificación, grabación, dirección y edición de 15 videos.',content:['Activaciones espontáneas en calle.','Dinámicas y concursos con la audiencia.','Contenido conectado con la personalidad de la banda.','Piezas optimizadas para TikTok, Instagram y otras plataformas.'],metrics:[['15','videos'],['+100.000','reproducciones'],['3','plataformas']],impact:'La campaña generó más presencia digital, exposición de la banda e incremento de escuchas.',videos:['https://vt.tiktok.com/ZS4j837N6/','https://vt.tiktok.com/ZS4jLm9Au/','https://vt.tiktok.com/ZS4jLVmDY/']}
+    };
+    const brands=[
+      {name:'Dan Collantes',industry:'Gastronomía',service:'Grabación y edición multiplataforma',url:'https://vt.tiktok.com/ZS4j8h7Gw/'},
+      {name:'Lily Blue',industry:'Música',service:'Estrategia y guiones',url:'https://vt.tiktok.com/ZS4jN1pAL/'},
+      {name:'Jorge C y La 45',industry:'Música',service:'Gestión completa de TikTok',url:'https://vt.tiktok.com/ZS4jNFt4X/'},
+      {name:'Roadtrip',industry:'Comunidad',service:'Gestión completa de TikTok',url:'https://vt.tiktok.com/ZS4jNYSfK/'},
+      {name:'Objekt',industry:'Diseño',service:'Gestión completa de TikTok',url:'https://vt.tiktok.com/ZS4jNuY7p/'},
+      {name:'Andrea Villalba',industry:'Eventos',service:'Gestión TikTok y coberturas',url:'https://vt.tiktok.com/ZS4jNhxT6/'},
+      {name:'Adriana Márquez',industry:'Marca personal',service:'Estrategia y edición',url:'https://vt.tiktok.com/ZS4jNS27e/'},
+      {name:'Buen Plan',industry:'Eventos',service:'Gestión de TikTok',url:'https://vt.tiktok.com/ZS4jFJcE7/'},
+      {name:'HFit',industry:'Bienestar',service:'Gestión de TikTok',url:'https://vt.tiktok.com/ZS4jNtwQj/'},
+      {name:'Templo Jempe',industry:'Bienestar',service:'Gestión TikTok y contenido específico',url:'https://vt.tiktok.com/ZS4jNpJ19/'},
+      {name:'Saphi',industry:'Gastronomía',service:'Producción de contenido',url:'https://vt.tiktok.com/ZS4jFL3fH/'},
+      {name:'EXA Ecuador',industry:'Entretenimiento',service:'Gestión de TikTok',url:'https://vt.tiktok.com/ZS4jFMvoC/'},
+      {name:'Paola Barberis',industry:'Inmobiliario',service:'Gestión TikTok y producción',url:'https://vt.tiktok.com/ZS4jFrapj/'},
+      {name:'Neo Constru',industry:'Inmobiliario',service:'Edición de contenido',url:'https://vt.tiktok.com/ZS4jFKbpb/'}
+    ];
+
+    const caseGrid=document.getElementById('caseGrid');
+    caseGrid.innerHTML=Object.entries(cases).map(([key,c])=>`<button class="case-card reveal" data-case="${key}" aria-label="Abrir caso de estudio de ${c.name}"><div class="case-top"><span class="case-badge">Caso de estudio · ${c.industry}</span><span class="case-logo"><img src="${c.logo}" alt="Logo de ${c.short}"></span></div><h3>${c.short}</h3><p>${c.title}</p><div class="case-bottom"><span>${c.service}</span><span class="arrow">↗</span></div></button>`).join('');
+
+    const brandGrid=document.getElementById('brandGrid'),filters=document.getElementById('filters');
+    const categories=['Todas',...new Set(brands.map(b=>b.industry))];
+    filters.innerHTML=categories.map((cat,i)=>`<button class="filter${i===0?' active':''}" data-filter="${cat}">${cat}</button>`).join('');
+    function renderBrands(filter='Todas'){
+      const items=filter==='Todas'?brands:brands.filter(b=>b.industry===filter);
+      brandGrid.innerHTML=items.length?items.map(b=>`<a class="brand-card reveal visible" href="${b.url}" target="_blank" rel="noopener" aria-label="Abrir perfil oficial de ${b.name}"><div class="brand-meta"><span>${b.industry}</span><span class="external">↗</span></div><div><h3>${b.name}</h3><p>${b.service}</p></div></a>`).join(''):'<p class="empty">No hay marcas en esta categoría.</p>';
+    }
+    renderBrands();
+    filters.addEventListener('click',e=>{const btn=e.target.closest('[data-filter]');if(!btn)return;document.querySelectorAll('.filter').forEach(f=>f.classList.remove('active'));btn.classList.add('active');renderBrands(btn.dataset.filter)});
+
+    const modal=document.getElementById('modal'),modalContent=document.getElementById('modalContent'),closeModal=document.getElementById('closeModal');
+    function openCase(key){
+      const c=cases[key];
+      modalContent.innerHTML=`<div class="modal-hero"><div><p class="modal-kicker">Caso de estudio · ${c.industry}</p><h2 id="modalTitle">${c.name}</h2><p class="modal-meta">${c.service}</p></div><div class="modal-logo"><img src="${c.logo}" alt="Logo de ${c.short}"></div></div><div class="modal-body"><div class="modal-grid"><section class="modal-block"><h3>El reto</h3><p>${c.challenge}</p></section><section class="modal-block"><h3>La estrategia</h3><p>${c.strategy}</p></section><section class="modal-block"><h3>Contenido desarrollado</h3><ul>${c.content.map(x=>`<li>${x}</li>`).join('')}</ul></section><section class="modal-block"><h3>Impacto</h3><p>${c.impact}</p></section></div><div class="metrics">${c.metrics.map(m=>`<div class="metric"><strong>${m[0]}</strong><span>${m[1]}</span></div>`).join('')}</div><h3 class="video-title">Videos seleccionados</h3><div class="video-grid">${c.videos.map((url,i)=>`<a class="video-link" href="${url}" target="_blank" rel="noopener"><span class="play">▶</span><div><small>TikTok · Ejemplo ${String(i+1).padStart(2,'0')}</small><strong>Ver video ↗</strong></div></a>`).join('')}</div><div style="margin-top:34px"><a class="btn" href="${whatsapp}" target="_blank" rel="noopener">Quiero un sistema como este ↗</a></div></div>`;
+      modal.classList.add('open');document.body.classList.add('modal-open');closeModal.focus();
+    }
+    function closeCase(){modal.classList.remove('open');document.body.classList.remove('modal-open')}
+    document.addEventListener('click',e=>{const card=e.target.closest('[data-case]');if(card)openCase(card.dataset.case)});
+    closeModal.addEventListener('click',closeCase);modal.addEventListener('click',e=>{if(e.target===modal)closeCase()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCase()});
+
+    const menuToggle=document.getElementById('menuToggle'),navLinks=document.getElementById('navLinks');
+    menuToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuToggle.setAttribute('aria-expanded',open);menuToggle.textContent=open?'×':'☰'});
+    navLinks.addEventListener('click',()=>{navLinks.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.textContent='☰'});
+
+    const progress=document.getElementById('progress');
+    window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;progress.style.width=(h?scrollY/h*100:0)+'%'},{passive:true});
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>

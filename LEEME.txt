@@ -1,0 +1,15 @@
+VERTICAL LAB — PORTAFOLIO
+
+OPCIÓN 1: abrir index.html en el navegador.
+OPCIÓN 2: subir toda esta carpeta a tu hosting manteniendo la estructura de /assets.
+
+ARCHIVOS PRINCIPALES
+- index.html: versión principal.
+- Vertical Lab — Portafolio.html: copia con el nombre original.
+- assets/: imágenes optimizadas para web.
+
+CONTACTO CONFIGURADO
+WhatsApp: +593 995 134 943
+
+NOTA
+Los enlaces de TikTok abren en una pestaña nueva. Para publicar la web, sube la carpeta completa, no solamente el HTML.
